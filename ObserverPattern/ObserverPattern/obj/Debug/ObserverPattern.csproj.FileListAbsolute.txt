@@ -1,0 +1,7 @@
+C:\HG KIM\GIthubPushes1\ObserverPattern\ObserverPattern\bin\Debug\ObserverPattern.exe.config
+C:\HG KIM\GIthubPushes1\ObserverPattern\ObserverPattern\bin\Debug\ObserverPattern.exe
+C:\HG KIM\GIthubPushes1\ObserverPattern\ObserverPattern\bin\Debug\ObserverPattern.pdb
+C:\HG KIM\GIthubPushes1\ObserverPattern\ObserverPattern\obj\Debug\ObserverPattern.csprojAssemblyReference.cache
+C:\HG KIM\GIthubPushes1\ObserverPattern\ObserverPattern\obj\Debug\ObserverPattern.csproj.CoreCompileInputs.cache
+C:\HG KIM\GIthubPushes1\ObserverPattern\ObserverPattern\obj\Debug\ObserverPattern.exe
+C:\HG KIM\GIthubPushes1\ObserverPattern\ObserverPattern\obj\Debug\ObserverPattern.pdb
