@@ -40,19 +40,19 @@ namespace ObserverPattern.ApplicationObjects.Management
 
 			Console.WriteLine($"Department {department.DepartmentID} does not exist");
 		}
-
+		
 		public void Hire(Employee employee)
 		{
 			_employeeManagable.HireNewEmployee(employee);
 
 			_message = $"Let's welcom our new colleague {employee.Name} in {employee.Department} !";
-			_departments.ForEach(department => department.GetNotified(_message));
+			NotifyDepartments(_message);
 		}
 
 		public void Award(Employee employee)
 		{
 			_message = $"Congratulation {employee.Name} in {employee.Department} for being awared as best employee !";
-			_departments.ForEach(department => department.GetNotified(_message));
+			NotifyDepartments(_message);
 		}
 	}
 }
