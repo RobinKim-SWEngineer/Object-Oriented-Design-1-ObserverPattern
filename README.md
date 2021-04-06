@@ -10,7 +10,7 @@ Observer pattern provides a way to **notify** other classes when it comes to spe
 
 When subject class has a collection of observer classes, **interface** should be used for *loose coupling*. We will see this aspect in our example code below.  
 
-## Sample code : Employee management system 
+## Example code : Employee management system 
 
 ![Image](https://github.com/RobinKim-SWEngineer/Images-for-document/blob/4f07c86dd55931dcf03376f522800e7be88b9863/ObserverPatternDiagram.png)
 
