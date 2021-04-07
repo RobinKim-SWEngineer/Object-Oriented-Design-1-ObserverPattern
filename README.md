@@ -17,10 +17,12 @@ When subject class has a collection of observer classes, **interface** is be use
 The employee management system in the sample code, has three departments under it. When there's a new employeement or award of an employee, they can notify all the departments through observer pattern.
 
 - In example
-  - EmployeeManagementSystem class has a list of IObservable interface, which is a list of departments. 
+  - EmployeeManagementSystem class has a list of IObservable interface, which is a list of departments.
+ 
     `private List<IObservable> _departments;`
 
   - When there's a new hire or award, it notifies all the departments through calling GetNotified() on the departments list.
+
    `public void NotifyDepartments(string message) => _departments.ForEach(department => department.GetNotified(message);`
     
   - In the future there might be other departments as the company grows, then we can simply add another department class that implements IObservable interface without having to modify EmployeeManagementSystem class. This fits well with **Open/Closed Principle ( OCP )**.
