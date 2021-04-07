@@ -23,6 +23,6 @@ The employee management system in the sample code, has three departments under i
 
   - When there's a new hire or award, it notifies all the departments through calling GetNotified() on the departments list.
 
-   `public void NotifyDepartments(string message) => _departments.ForEach(department => department.GetNotified(message);`
+    `public void NotifyDepartments(string message) => _departments.ForEach(department => department.GetNotified(message);`
     
   - In the future there might be other departments as the company grows, then we can simply add another department class that implements IObservable interface without having to modify EmployeeManagementSystem class. This fits well with **Open/Closed Principle ( OCP )**.
