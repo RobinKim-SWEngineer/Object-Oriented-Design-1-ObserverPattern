@@ -8,43 +8,19 @@ Observer pattern provides a way to **notify** other classes when it comes to spe
 
 2. Observer classes who are ready to **listen** are notified about an event by the subject class.
 
-When subject class has a collection of observer classes, **interface** should be used for *loose coupling*. We will see this aspect in our example code below.  
+When subject class has a collection of observer classes, **interface** is be used for *loose coupling*. We will see this aspect in our example code below.  
 
-## Example code : Employee management system 
+## Sample code : Employee management system 
 
 ![Image](https://github.com/RobinKim-SWEngineer/Images-for-document/blob/4f07c86dd55931dcf03376f522800e7be88b9863/ObserverPatternDiagram.png)
 
-There`re two seperate examples, which of the each implements same behavior, one through delegate and another through interface. 
-
-There is a Bank class, which needs three objects who are able to transfer, save and invest. The bank class actually has no knowledge about who and how they to that, it only knows those objects will have these 3 abilities.
+The employee management system in the sample code, has three departments under it. When there's a new employeement or award of an employee, they can notify all the departments through observer pattern.
 
 - In example
-  - Delegate : Bank class needs 3 delegate instances to be instantiated. Those 3 delegate instances should be objects of methods that have same signature as that of delegate definition. One of them is
-    `public delegate double InvestmentDelegate(double money);`
-  
-    When instantiating the bank class, three methods are hooked as delegate instances so Bank class can implement them.
-    `Bank happyBank = new Bank(HappyTransactionCorporation.TransactMoney, HappySaveCorporation.Save, HappyInvestCorporation.Invest);`
+  - EmployeeManagementSystem class has a list of IObservable interface, which is a list of departments. 
+    `private List<IObservable> _departments;`
+
+  - When there's a new hire or award, it notifies all the departments through calling GetNotified() on the departments list.
+   `public void NotifyDepartments(string message) => _departments.ForEach(department => department.GetNotified(message);`
     
-  - Interface : Bank class needs 3 interface instances to be instantiated. Those 3 interface instances should be objects of class or struct that have same members as that of interface. One of them is
-    `public interface IInvestable 
-    { 
-        double Invest(double money);
-    }`
-  
-    When instantiating the bank class, three instances are instantiated and passed so Bank class can implement them.
-    `Bank happyBank = new Bank(new HappyTransactionCorporation(), new HappySaveCorporation(), new HappyInvestCorporation());`
-
-## And where is the extensibility ?
-In our example, there used to be only one transaction funcionality provider, which is HappyTransactionCorporation. And now the rival company appeared whose name is GloomyTransactionCorporation. So how do we switch to the new provider ?
-
-Simply like the following, without changing Bank class !
-- In the delegate exmaple : 
-`Bank happyBank = new Bank(GloomyTransactionCorporation.Transact, HappySaveCorporation.Save, HappyInvestCorporation.Invest);`
-
-- In the Interface example :
-`Bank happyBank = new Bank(new GloomyTransactCorporation(), new HappySaveCorporation(), new HappyInvestCorporation());`
-
-We just pass new delegate or interface instance to tha bank class, and that instance`s method or members will be called by bank class correspondingly.
-
-
-
+  - In the future there might be other departments as the company grows, then we can simply add another department class that implements IObservable interface without having to modify EmployeeManagementSystem class. This fits well with **Open/Closed Principle ( OCP )**.
